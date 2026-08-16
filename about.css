@@ -1,0 +1,662 @@
+/* ========================================
+   ABOUT PAGE VARIABLES
+======================================== */
+
+:root {
+    --about-heading-font: "Jost", sans-serif;
+    --about-body-font: "Inter", sans-serif;
+
+    --about-black: #141414;
+    --about-white: #ffffff;
+    --about-gray: #414141;
+    --about-green: #c0fd46;
+    --about-purple: #9258ff;
+
+    --about-side-space: clamp(24px, 5vw, 96px);
+}
+
+
+/* ========================================
+   ABOUT PAGE GENERAL SETTINGS
+======================================== */
+
+.about-page {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--about-white);
+    color: var(--about-black);
+}
+
+.about-page,
+.about-page * {
+    box-sizing: border-box;
+}
+
+.about-page img {
+    display: block;
+    width: 100%;
+}
+
+
+/* ========================================
+   SHARED HEADER ADJUSTMENTS
+======================================== */
+
+/*
+Header'ın boyutu, fontu, hizası ve hover özellikleri
+style4.css dosyasından geliyor.
+
+Burada yalnızca About sayfasındaki aktif linki belirtiyoruz.
+*/
+
+.site-header .ana-menu a.active {
+    position: relative;
+}
+
+.site-header .ana-menu a.active::after {
+    width: 100%;
+    background-color: var(--about-green);
+}
+
+.site-header .ana-menu a.active:hover {
+    color: var(--about-purple);
+}
+
+.site-header .ana-menu a.active:hover::after {
+    background-color: var(--about-purple);
+}
+
+
+/* ========================================
+   ABOUT INTRODUCTION
+======================================== */
+
+.about-introduction {
+    padding:
+        clamp(65px, 7vw, 105px)
+        var(--about-side-space);
+
+    display: grid;
+    grid-template-columns:
+        minmax(300px, 0.82fr)
+        minmax(430px, 1.18fr);
+
+    align-items: center;
+    gap: clamp(55px, 8vw, 130px);
+
+    background-color: var(--about-black);
+    color: var(--about-white);
+}
+
+
+/* ========================================
+   PORTRAIT
+======================================== */
+
+.portrait-container {
+    width: 100%;
+    max-width: 560px;
+
+    padding: 6px;
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    background-color: var(--about-white);
+
+    transition:
+        background-color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.portrait-container img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.35s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    .portrait-container:hover {
+        background-color: var(--about-green);
+        transform: translateY(-4px);
+    }
+
+    .portrait-container:hover img {
+        transform: scale(0.995);
+    }
+}
+
+
+/* ========================================
+   INTRODUCTION TEXT
+======================================== */
+
+.introduction-content {
+    max-width: 850px;
+}
+
+.about-label {
+    margin: 0 0 18px;
+
+    color: var(--about-green);
+
+    font-family: var(--about-body-font);
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.introduction-content h1 {
+    margin: 0 0 28px;
+
+    color: var(--about-white);
+
+    font-family: var(--about-heading-font);
+    font-size: clamp(3rem, 5.5vw, 6.3rem);
+    font-weight: 600;
+    line-height: 0.94;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+}
+
+.dynamic-title {
+    display: block;
+    width: fit-content;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.dynamic-title:hover {
+    color: var(--about-green);
+    transform: translateX(9px);
+}
+
+.introduction-lead {
+    max-width: 700px;
+    margin: 0 0 20px;
+
+    color: var(--about-white);
+
+    font-family: var(--about-heading-font);
+    font-size: clamp(1.35rem, 2.1vw, 2.3rem);
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+}
+
+.introduction-description {
+    max-width: 650px;
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-family: var(--about-body-font);
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+
+/* ========================================
+   EDUCATION AND TOOLKIT CONTAINER
+======================================== */
+
+.about-information {
+    padding:
+        clamp(55px, 6vw, 90px)
+        var(--about-side-space);
+
+    background-color: var(--about-white);
+}
+
+.information-block {
+    padding: clamp(48px, 5.5vw, 78px) 0;
+
+    display: grid;
+    grid-template-columns:
+        minmax(270px, 0.75fr)
+        minmax(450px, 1.25fr);
+
+    align-items: start;
+    gap: clamp(45px, 8vw, 130px);
+
+    border-top: 1px solid rgba(20, 20, 20, 0.24);
+}
+
+.information-block:last-child {
+    border-bottom: 1px solid rgba(20, 20, 20, 0.24);
+}
+
+
+/* ========================================
+   INFORMATION HEADINGS
+======================================== */
+
+.information-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.information-number {
+    margin-bottom: 14px;
+
+    color: var(--about-purple);
+
+    font-family: var(--about-body-font);
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.12em;
+}
+
+.information-heading h2 {
+    margin: 0;
+
+    color: var(--about-black);
+
+    font-family: var(--about-heading-font);
+    font-size: clamp(2.8rem, 5vw, 5.7rem);
+    font-weight: 600;
+    line-height: 0.91;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+}
+
+
+/* ========================================
+   EDUCATION
+======================================== */
+
+.information-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.education-item {
+    padding: 5px 0 28px;
+}
+
+.education-item + .education-item {
+    padding-top: 28px;
+
+    border-top: 1px solid rgba(20, 20, 20, 0.18);
+}
+
+.education-title {
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.education-title h3 {
+    margin: 0;
+
+    color: var(--about-black);
+
+    font-family: var(--about-heading-font);
+    font-size: clamp(1.35rem, 2.1vw, 2.15rem);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.education-date {
+    flex-shrink: 0;
+
+    color: var(--about-purple);
+
+    font-family: var(--about-body-font);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.education-item p {
+    max-width: 620px;
+    margin: 0;
+
+    color: var(--about-gray);
+
+    font-family: var(--about-body-font);
+    font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+    line-height: 1.55;
+}
+
+
+/* ========================================
+   CREATIVE TOOLKIT
+======================================== */
+
+.tool-list {
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    align-content: start;
+    gap: 0 45px;
+
+    list-style: none;
+}
+
+.tool-list li {
+    margin: 0;
+    padding: 18px 0;
+
+    color: var(--about-black);
+
+    font-family: var(--about-heading-font);
+    font-size: clamp(1.1rem, 1.7vw, 1.6rem);
+    font-weight: 500;
+    line-height: 1.3;
+
+    border-bottom: 1px solid rgba(20, 20, 20, 0.2);
+}
+
+.tool-list li::before {
+    content: "↗";
+
+    display: inline-block;
+    margin-right: 13px;
+
+    color: var(--about-purple);
+}
+
+
+/* ========================================
+   SMALL CONTACT
+======================================== */
+
+.small-contact {
+    padding:
+        clamp(40px, 4.5vw, 65px)
+        var(--about-side-space);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 45px;
+
+    background-color: var(--about-purple);
+    color: var(--about-white);
+}
+
+.small-contact p {
+    margin: 0;
+
+    font-family: var(--about-heading-font);
+    font-size: clamp(1.9rem, 3.4vw, 3.8rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.035em;
+}
+
+.small-contact a {
+    flex-shrink: 0;
+
+    padding: 13px 21px;
+
+    background-color: var(--about-green);
+    color: var(--about-black);
+
+    border: 2px solid var(--about-green);
+    border-radius: 100px;
+
+    font-family: var(--about-body-font);
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.small-contact a:hover {
+    background-color: transparent;
+    color: var(--about-green);
+
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.about-footer {
+    padding: 28px var(--about-side-space);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    background-color: var(--about-black);
+    color: var(--about-white);
+
+    font-family: var(--about-body-font);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.about-footer p {
+    margin: 0;
+}
+
+.about-footer a {
+    color: var(--about-white);
+
+    transition: color 0.25s ease;
+}
+
+.about-footer a:hover {
+    color: var(--about-purple);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .about-introduction {
+        grid-template-columns:
+            minmax(260px, 0.8fr)
+            minmax(350px, 1.2fr);
+
+        gap: 45px;
+    }
+
+    .information-block {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+}
+
+
+/* ========================================
+   PHONE
+======================================== */
+
+@media (max-width: 700px) {
+
+    :root {
+        --about-side-space: 22px;
+    }
+
+
+    /* About introduction */
+
+    .about-introduction {
+        padding:
+            52px
+            var(--about-side-space)
+            62px;
+
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .portrait-container {
+        width: 100%;
+        max-width: 480px;
+
+        padding: 6px;
+    }
+
+    .about-label {
+        margin-bottom: 16px;
+
+        font-size: 0.67rem;
+    }
+
+    .introduction-content h1 {
+        margin-bottom: 24px;
+
+        font-size: clamp(2.7rem, 13vw, 4.3rem);
+        line-height: 0.97;
+    }
+
+    .dynamic-title:hover {
+        transform: none;
+    }
+
+    .introduction-lead {
+        margin-bottom: 19px;
+
+        font-size: clamp(1.3rem, 6.2vw, 1.9rem);
+        line-height: 1.35;
+    }
+
+    .introduction-description {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+
+    /* Information */
+
+    .about-information {
+        padding:
+            48px
+            var(--about-side-space)
+            60px;
+    }
+
+    .information-block {
+        padding: 46px 0;
+
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    .information-number {
+        margin-bottom: 12px;
+    }
+
+    .information-heading h2 {
+        font-size: clamp(2.65rem, 14vw, 4.2rem);
+        line-height: 0.94;
+    }
+
+
+    /* Education */
+
+    .education-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .education-title h3 {
+        font-size: 1.4rem;
+    }
+
+    .education-date {
+        font-size: 0.68rem;
+    }
+
+    .education-item {
+        padding-bottom: 25px;
+    }
+
+    .education-item + .education-item {
+        padding-top: 25px;
+    }
+
+
+    /* Toolkit */
+
+    .tool-list {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-list li {
+        padding: 16px 0;
+
+        font-size: 1.12rem;
+    }
+
+
+    /* Small contact */
+
+    .small-contact {
+        padding:
+            42px
+            var(--about-side-space);
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .small-contact p {
+        max-width: 330px;
+
+        font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .small-contact a {
+        padding: 12px 17px;
+
+        font-size: 0.67rem;
+    }
+
+
+    /* Footer */
+
+    .about-footer {
+        padding:
+            25px
+            var(--about-side-space);
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
