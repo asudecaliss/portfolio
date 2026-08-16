@@ -1,0 +1,1110 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+    --baslik-font: "Jost", sans-serif;
+    --metin-font: "Inter", sans-serif;
+
+    --siyah: #141414;
+    --koyu-gri: #242424;
+    --gri: #3b3b3b;
+    --acik-gri: #d8d8d8;
+    --beyaz: #ffffff;
+
+    --yesil: #c0fd46;
+    --mor: #9258ff;
+    --mor-hover: #7b3ff2;
+
+    --kenar-boslugu: clamp(24px, 5vw, 80px);
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background-color: var(--siyah);
+    color: var(--beyaz);
+
+    font-family: var(--metin-font);
+    line-height: 1.5;
+
+    overflow-x: hidden;
+}
+
+
+h1,
+h2,
+h3,
+.logo,
+.ana-menu a {
+    font-family: var(--baslik-font);
+}
+
+
+img {
+    display: block;
+    width: 100%;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+    min-height: 80px;
+    padding: 0 var(--kenar-boslugu);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var(--siyah);
+    border-bottom: 1px solid var(--gri);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.logo {
+    color: var(--beyaz);
+
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    transition: color 0.3s ease;
+}
+
+
+.logo:hover {
+    color: var(--yesil);
+}
+
+
+.ana-menu ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(22px, 3vw, 48px);
+}
+
+
+.ana-menu a {
+    position: relative;
+
+    color: var(--beyaz);
+
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    transition: color 0.3s ease;
+}
+
+
+.ana-menu a::after {
+    content: "";
+
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: var(--mor);
+
+    transition: width 0.3s ease;
+}
+
+
+.ana-menu a:hover {
+    color: var(--mor);
+}
+
+
+.ana-menu a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.giris {
+    --daire-boyutu: clamp(420px, 50vw, 760px);
+
+    min-height: calc(100vh - 90px);
+    padding: clamp(80px, 10vw, 150px) var(--kenar-boslugu);
+
+    display: flex;
+    align-items: center;
+
+    background-color: var(--siyah);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Green half circle */
+
+.giris::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    right: calc(var(--daire-boyutu) / -2);
+
+    width: var(--daire-boyutu);
+    aspect-ratio: 1 / 1;
+
+    background-color: var(--yesil);
+    border-radius: 50%;
+
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+
+.giris-icerik {
+    width: min(1120px, 76%);
+
+    position: relative;
+    z-index: 3;
+}
+
+
+.giris-etiket {
+    margin-bottom: 25px;
+
+    color: var(--yesil);
+
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+
+.giris h1 {
+    max-width: 1120px;
+
+    color: var(--beyaz);
+
+    font-size: clamp(3.2rem, 6.8vw, 7.4rem);
+    font-weight: 700;
+    line-height: 1.07;
+    letter-spacing: -0.025em;
+}
+
+
+.giris-buton {
+    display: inline-block;
+
+    margin-top: 46px;
+    padding: 16px 25px;
+
+    background-color: var(--mor);
+    color: var(--beyaz);
+
+    border: 2px solid var(--mor);
+    border-radius: 100px;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.giris-buton:hover {
+    background-color: transparent;
+    color: var(--mor);
+
+    transform: translateY(-3px);
+}
+
+
+/* Hero star */
+
+.giris-yildiz {
+    position: absolute;
+    top: 50%;
+    right: calc(var(--daire-boyutu) / -2);
+
+    width: calc(var(--daire-boyutu) * 0.85);
+    height: calc(var(--daire-boyutu) * 0.85);
+
+    color: var(--beyaz);
+
+    transform: translateY(-50%) rotate(8deg);
+    z-index: 2;
+
+    transition:
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+.giris-yildiz svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+.giris-yildiz path {
+    fill: currentColor;
+}
+
+
+.giris-yildiz:hover {
+    color: var(--mor);
+
+    transform:
+        translateY(-50%)
+        rotate(18deg)
+        scale(1.02);
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.hakkimda-ozet {
+    min-height: 62vh;
+    padding: clamp(75px, 9vw, 135px) var(--kenar-boslugu);
+
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: start;
+    gap: clamp(50px, 8vw, 140px);
+
+    background-color: var(--yesil);
+    color: var(--siyah);
+}
+
+
+.hakkimda-baslik h2 {
+    font-size: clamp(3.2rem, 6vw, 7rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+}
+
+
+.hakkimda-icerik {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.hakkimda-icerik p {
+    max-width: 820px;
+
+    font-family: var(--metin-font);
+    font-size: clamp(1.05rem, 1.55vw, 1.65rem);
+    font-weight: 400;
+    line-height: 1.58;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+
+.metin-link {
+    display: inline-block;
+
+    margin-top: 40px;
+    padding-bottom: 7px;
+
+    border-bottom: 2px solid var(--siyah);
+
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.metin-link:hover {
+    color: var(--mor);
+    border-color: var(--mor);
+}
+
+
+/* =========================================
+   WORKS
+========================================= */
+
+.isler {
+    padding: clamp(90px, 10vw, 150px) var(--kenar-boslugu);
+
+    display: grid;
+    grid-template-columns: minmax(250px, 0.65fr) minmax(0, 1.7fr);
+    align-items: start;
+    gap: clamp(50px, 6vw, 100px);
+
+    background-color: var(--beyaz);
+    color: var(--siyah);
+}
+
+
+.isler-tanitim {
+    width: fit-content;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    position: sticky;
+    top: 140px;
+}
+
+
+.isler-tanitim h2 {
+    font-size: clamp(3.3rem, 5.5vw, 6.5rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+}
+
+
+.isler-tanitim p {
+    max-width: 300px;
+    margin-top: 30px;
+
+    color: var(--gri);
+
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: left;
+}
+
+
+.ana-buton {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    align-self: flex-start;
+
+    margin-top: 36px;
+    padding: 15px 24px;
+
+    background-color: var(--mor);
+    color: var(--beyaz);
+
+    border: 2px solid var(--mor);
+    border-radius: 100px;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.ana-buton:hover {
+    background-color: transparent;
+    color: var(--mor);
+
+    transform: translateY(-3px);
+}
+
+
+/* Category cards */
+
+.proje-listesi {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap:
+        clamp(32px, 4vw, 65px)
+        clamp(20px, 2.5vw, 40px);
+}
+
+
+.proje-karti {
+    min-width: 0;
+}
+
+
+.proje-link {
+    display: block;
+}
+
+
+.proje-gorsel {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    background-color: #292929;
+
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+
+.proje-gorsel img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        saturate(0.92)
+        contrast(0.96);
+
+    transform: scale(1.02);
+
+    transition:
+        transform 0.65s ease,
+        filter 0.45s ease;
+}
+
+
+/* Grey glass overlay */
+
+.proje-gorsel::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40, 40, 40, 0.24),
+            rgba(115, 115, 115, 0.13)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.24);
+
+    box-shadow:
+        inset 0 0 40px rgba(255, 255, 255, 0.06);
+
+    -webkit-backdrop-filter:
+        blur(3.5px)
+        saturate(0.88);
+
+    backdrop-filter:
+        blur(3.5px)
+        saturate(0.88);
+
+    pointer-events: none;
+
+    transition:
+        background 0.45s ease,
+        backdrop-filter 0.45s ease,
+        -webkit-backdrop-filter 0.45s ease;
+}
+
+
+.proje-karti h3 {
+    margin-top: 17px;
+
+    font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+
+    transition: color 0.3s ease;
+}
+
+
+.proje-link:hover .proje-gorsel img {
+    filter:
+        saturate(1)
+        contrast(1);
+
+    transform: scale(1.07);
+}
+
+
+.proje-link:hover .proje-gorsel::after {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40, 40, 40, 0.08),
+            rgba(115, 115, 115, 0.03)
+        );
+
+    -webkit-backdrop-filter:
+        blur(0)
+        saturate(1);
+
+    backdrop-filter:
+        blur(0)
+        saturate(1);
+}
+
+
+.proje-link:hover h3 {
+    color: var(--mor);
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.iletisim {
+    --contact-baslik-boyutu: clamp(4rem, 7.5vw, 8.5rem);
+
+    min-height: 90vh;
+    padding: clamp(90px, 10vw, 155px) var(--kenar-boslugu);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: clamp(50px, 8vw, 140px);
+
+    background-color: var(--mor);
+    color: var(--beyaz);
+}
+
+
+.iletisim-baslik {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+.iletisim-etiket {
+    margin-bottom: 25px;
+
+    color: var(--yesil);
+
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+
+.iletisim h2 {
+    font-size: var(--contact-baslik-boyutu);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+}
+
+
+.iletisim-ok {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 75px;
+    height: 75px;
+    margin-top: 50px;
+
+    background-color: var(--yesil);
+    color: var(--siyah);
+
+    border-radius: 50%;
+
+    font-size: 2rem;
+    line-height: 1;
+}
+
+
+.iletisim-bilgileri {
+    width: 100%;
+    height: calc(var(--contact-baslik-boyutu) * 2.94);
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    padding-top: 0;
+}
+
+.iletisim-bilgileri a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        padding 0.3s ease;
+}
+
+
+.iletisim-bilgileri a:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+
+.iletisim-bilgileri span:first-child {
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+    font-weight: 600;
+}
+
+
+.iletisim-bilgileri span:last-child {
+    font-size: 0.88rem;
+    text-align: right;
+    opacity: 0.85;
+}
+
+
+.iletisim-bilgileri a:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    background-color: var(--yesil);
+    color: var(--siyah);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+    padding: 28px var(--kenar-boslugu);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var(--siyah);
+    color: var(--beyaz);
+
+    border-top: 1px solid var(--gri);
+}
+
+
+.site-footer p,
+.site-footer a {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+
+.site-footer a {
+    transition: color 0.3s ease;
+}
+
+
+.site-footer a:hover {
+    color: var(--yesil);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .giris {
+        --daire-boyutu: clamp(380px, 60vw, 600px);
+    }
+
+
+    .giris-icerik {
+        width: 78%;
+    }
+
+
+    .giris h1 {
+        font-size: clamp(3.2rem, 7.6vw, 6.2rem);
+    }
+
+
+    .hakkimda-ozet {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+
+    .hakkimda-icerik {
+        max-width: 800px;
+    }
+
+
+    .isler {
+        grid-template-columns: 1fr;
+    }
+
+
+    .isler-tanitim {
+        max-width: 650px;
+        position: static;
+    }
+
+
+    .proje-listesi {
+        margin-top: 25px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    .iletisim {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+
+    .iletisim-bilgileri {
+        max-width: 850px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    :root {
+        --kenar-boslugu: 24px;
+    }
+
+
+    /* Header */
+
+    .site-header {
+        min-height: auto;
+        padding-top: 21px;
+        padding-bottom: 21px;
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 19px;
+    }
+
+
+    .logo {
+        font-size: 1rem;
+    }
+
+
+    .ana-menu {
+        width: 100%;
+    }
+
+
+    .ana-menu ul {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+
+    .ana-menu a {
+        font-size: 0.72rem;
+    }
+    
+    .ana-buton {
+        width: fit-content;
+    }
+
+    /* Hero */
+
+    .giris {
+        --daire-boyutu: 300px;
+
+        min-height: 820px;
+        padding-top: 80px;
+        padding-bottom: 130px;
+
+        align-items: flex-start;
+    }
+
+
+    .giris-icerik {
+        width: 100%;
+    }
+
+
+    .giris-etiket {
+        margin-bottom: 20px;
+
+        font-size: 0.7rem;
+        line-height: 1.4;
+    }
+
+
+    .giris h1 {
+        max-width: 100%;
+
+        font-size: clamp(2.8rem, 13vw, 4.7rem);
+        line-height: 1.07;
+        letter-spacing: -0.025em;
+    }
+
+
+    .giris-buton {
+        margin-top: 38px;
+        padding: 14px 20px;
+
+        font-size: 0.7rem;
+    }
+
+
+    .giris::after {
+        top: auto;
+        right: -150px;
+        bottom: -60px;
+
+        width: var(--daire-boyutu);
+
+        transform: none;
+    }
+
+
+    .giris-yildiz {
+        top: auto;
+        right: -128px;
+        bottom: -40px;
+
+        width: calc(var(--daire-boyutu) * 0.85);
+        height: calc(var(--daire-boyutu) * 0.85);
+
+        transform: rotate(8deg);
+    }
+
+
+    .giris-yildiz:hover {
+        color: var(--beyaz);
+        transform: rotate(8deg);
+    }
+
+
+    /* About */
+
+    .hakkimda-ozet {
+        min-height: auto;
+
+        padding-top: 80px;
+        padding-bottom: 90px;
+
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+
+    .hakkimda-baslik h2 {
+        font-size: clamp(3rem, 14vw, 5rem);
+    }
+
+
+    .hakkimda-icerik p {
+        font-size: 1.02rem;
+        line-height: 1.65;
+    }
+
+
+    .metin-link {
+        margin-top: 30px;
+    }
+
+
+    /* Works */
+
+    .isler {
+        padding-top: 80px;
+        padding-bottom: 90px;
+
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+
+    .isler-tanitim {
+        width: 100%;
+    }
+
+
+    .isler-tanitim h2 {
+        font-size: clamp(3.2rem, 15vw, 5rem);
+    }
+
+
+    .isler-tanitim p {
+        max-width: 100%;
+        font-size: 1rem;
+    }
+
+
+    .proje-listesi {
+        margin-top: 0;
+
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+
+    .proje-gorsel::after {
+        background:
+            linear-gradient(
+                135deg,
+                rgba(40, 40, 40, 0.16),
+                rgba(115, 115, 115, 0.07)
+            );
+
+        -webkit-backdrop-filter:
+            blur(2px)
+            saturate(0.92);
+
+        backdrop-filter:
+            blur(2px)
+            saturate(0.92);
+    }
+
+
+    .proje-karti h3 {
+        font-size: 1.15rem;
+    }
+
+
+    /* Contact */
+
+    .iletisim {
+        min-height: auto;
+
+        padding-top: 80px;
+        padding-bottom: 90px;
+
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 55px;
+    }
+
+
+    .iletisim h2 {
+        font-size: clamp(3.5rem, 16vw, 5.5rem);
+        line-height: 1;
+    }
+
+
+    .iletisim-ok {
+        width: 62px;
+        height: 62px;
+        margin-top: 38px;
+
+        font-size: 1.7rem;
+    }
+
+
+    .iletisim-bilgileri {
+    height: auto;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.iletisim-bilgileri a {
+    flex: initial;
+
+    padding: 22px 0;
+
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+    .iletisim-bilgileri span:last-child {
+        text-align: left;
+    }
+
+
+    /* Footer */
+
+    .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+@media (max-width: 700px) {
+    .giris {
+        min-height: 76svh;
+        padding-bottom: 80px;
+        overflow: hidden;
+    }
+
+    .giris-yildiz {
+        width: 210px;
+        height: 210px;
+        right: -45px;
+        bottom: -45px;
+    }
+ }    
+
+}
